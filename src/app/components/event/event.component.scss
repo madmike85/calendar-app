@@ -1,0 +1,63 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 245px;
+  height: 350px;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 0 5px;
+
+  &::placeholder {
+    opacity: 0.5;
+  }
+}
+
+textarea {
+  padding: 0 5px;
+  &::placeholder {
+    opacity: 0.5;
+  }
+}
+
+p {
+  margin-bottom: 2px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: gray;
+  font-size: 12px;
+  font-weight: bolder;
+}
+
+.event-participants,
+.participants {
+  margin-bottom: 15px;
+}
+
+.date {
+  margin-bottom: 6px;
+}
+
+.btn-row {
+  position: absolute;
+  bottom: 10px;
+  .btn {
+    margin-right: 5px;
+  }
+}
+
+.description {
+  resize: none;
+  width: 245px;
+  height: 150px;
+  margin-bottom: 10px;
+}

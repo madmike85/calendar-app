@@ -1,0 +1,45 @@
+:host {
+  display: grid;
+  grid-template-columns: repeat(7, 130px);
+  padding: 15px 5%;
+  justify-content: center;
+}
+
+.grid-item {
+  height: 130px;
+  border: 1px solid black;
+  margin-left: -1px;
+  margin-bottom: -1px;
+  padding: 8px;
+
+  .date {
+    font-size: 12px;
+    color: gray;
+  }
+
+  .event {
+    font-size: 14px;
+
+    &__title {
+      margin-bottom: 0;
+      font-weight: bolder;
+    }
+
+    &__participants {
+      margin-bottom: 0;
+    }
+  }
+
+  ngb-popover-window.bs-popover-right-top > .arrow {
+    top: 1.7em !important;
+  }
+}
+
+.selected {
+  background: #c1e7ff !important;
+  border: 2px solid blue;
+}
+
+.event {
+  background: #cbe8ff;
+}

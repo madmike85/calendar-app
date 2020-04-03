@@ -1,0 +1,56 @@
+<form [formGroup]="eventForm">
+  <input
+    formControlName="title"
+    *ngIf="!event; else title"
+    class="event-title"
+    type="text"
+    placeholder="Событие"
+  />
+  <ng-template #title>
+    <p class="title">{{ event.title }}</p>
+  </ng-template>
+
+  <input
+    formControlName="date"
+    *ngIf="!event; else date"
+    class="event-date"
+    type="text"
+    placeholder="День, месяц, год"
+  />
+  <ng-template #date>
+    <p class="date">{{ day.day }} {{ month }}</p>
+  </ng-template>
+
+  <input
+    formControlName="participants"
+    *ngIf="!event; else participants"
+    class="event-participants"
+    type="text"
+    placeholder="Участники"
+  />
+  <ng-template #participants>
+    <p class="subtitle">Участники:</p>
+    <p class="participants">{{ event.participants }}</p>
+  </ng-template>
+  <textarea
+    formControlName="description"
+    *ngIf="!event; else description"
+    class="description"
+    name=""
+    id=""
+    cols="30"
+    rows="10"
+    placeholder="Описание"
+  ></textarea>
+  <ng-template #description>
+    <p class="subtitle">Описание:</p>
+    <p>{{ event.description }}</p>
+  </ng-template>
+</form>
+
+<div class="btn-row">
+  <button type="button" (click)="add(eventForm)" class="btn btn-outline-dark btn-sm">Готово</button>
+  <button type="button" (click)="delete(day.dateAttr)" class="btn btn-outline-dark btn-sm">
+    Удалить
+  </button>
+</div>

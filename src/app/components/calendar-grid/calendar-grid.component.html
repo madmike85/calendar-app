@@ -1,0 +1,25 @@
+<div
+  #gridItem
+  class="grid-item"
+  *ngFor="let day of days; let i = index"
+  [attr.data-date]="day.dateAttr"
+  [appToday]="day.dateAttr"
+  [ngClass]="{ selected: selected === day.dateAttr, event: events[day.dateAttr] }"
+  (click)="selected = day.dateAttr"
+  [ngbPopover]="popContent"
+  placement="right-top"
+  [autoClose]="'outside'"
+>
+  <div class="date">
+    <span *ngIf="i < 7">{{ daysOfWeek[i] }},</span>
+    {{ day.day }}
+  </div>
+  <div class="event" *ngIf="events[day.dateAttr]">
+    <p class="event__title">{{ events[day.dateAttr].title }}</p>
+    <p class="event__participants">{{ events[day.dateAttr].participants }}</p>
+  </div>
+  <ng-template #popContent>
+    <app-event [day]="day"></app-event>
+    <div class="btn-close">x</div>
+  </ng-template>
+</div>

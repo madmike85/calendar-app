@@ -1,0 +1,44 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <div class="btn_row">
+    <button
+      type="button"
+      class="btn btn-primary"
+      [ngbPopover]="popContent"
+      placement="bottom-left"
+      [autoClose]="'outside'"
+      #p="ngbPopover"
+    >
+      Добавить
+    </button>
+    <button type="button" class="btn btn-primary">Обновить</button>
+  </div>
+  <div class="search_box">
+    <i class="fas fa-search"></i>
+    <input
+      class="form-control mr-sm-2"
+      type="search"
+      placeholder="Событие, дата или участник"
+      aria-label="Search"
+      [(ngModel)]="model"
+      [ngbTypeahead]="search"
+      [resultFormatter]="formatter"
+    />
+    <ng-template #rt let-r="result" let-t="term">
+      <ngb-highlight [result]="r.title" [term]="t"></ngb-highlight>
+    </ng-template>
+  </div>
+  <ng-template #popContent>
+    <div class="btn-close" (click)="p.close()">x</div>
+    <form class="event-form" [formGroup]="eventForm">
+      <input
+        formControlName="event"
+        type="text"
+        required
+        placeholder="5 Марта, 14:00, День Рождения"
+      />
+      <button type="button" class="btn btn-outline-dark btn-sm" (click)="add(eventForm)">
+        Создать
+      </button>
+    </form>
+  </ng-template>
+</nav>
